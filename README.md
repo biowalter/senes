@@ -1,4 +1,4 @@
-<img align="left" width="300" height="200" src="/home/waltermint/senes/logo/senes_logo.jpg">
+<img align="left" width="300" height="200" src="./logo/senes_logo.jpg">
 
 ## SENES /sɪˈnɛs/
 
