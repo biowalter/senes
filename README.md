@@ -112,24 +112,10 @@ git install add https://github.com/biowalter/senes.git
 
 ## Usage
 
-Currently only the simulator module is available.
+Activate the dedicated environment:
 
 ```
-usage: senes.py [-h] [-v] {simulator,compare} ...
-
-optional arguments:
-  -h, --help           show this help message and exit
-  -v, --version        show program's version number and exit
-
-subcommands:
-  
-  SENES runs in two modes.
-  For detailed usage of each:
-      senes.py module -h
-
-  {simulator,compare}  You may run SENES in simulation or compare mode.
-    simulator          Run with simulation mode
-    compare            Run with compare mode
+conda activate myenv
 ```
 
 Type ``senes.py simulator --help`` for a detailed description of the options and user-defined parameters:
