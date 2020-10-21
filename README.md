@@ -111,7 +111,7 @@ subcommands:
 
 Type ``senes.py simulator --help`` for a detailed description of the options and user-defined parameters:
 
-```shell
+```
 usage: senes.py simulator [-h] -m {haploid,chromosomal} -k PLOIDY -g
                           GENERATIONS [-n ALLELE] [-i INPUT_RATIO]
                           [-c CHROMOSOMES] [-o OUTPUT] [-p PLOT]
@@ -150,7 +150,7 @@ You can start the simulation by either indicating the initial copy number of you
 
 **``SENES``** writes a summary of the output to the console:
 
-```console
+```
 gen  input_ratio      sdev         H           1-H
 2          0.5  0.074742  1.000000  6.551509e-14
 3          0.5  0.091283  1.000000  2.674580e-10
@@ -165,7 +165,7 @@ gen  input_ratio      sdev         H           1-H
 200        0.5  0.473191  0.149824  8.501757e-01
 ```
 
-- ``gen`` number of **generations** the simulation was ran for. 
+- ``gen`` number of **generations** the simulation was ran for.
 - ``input_ratio`` number of **initial copies** of the target allele (A<sub>0</sub>) expressed as fraction of the ploidy.
 - ``sdev`` **standard deviation** of the allele distribution at the corresponding generation. 
 - ``H`` **_heterozygosity_,** fraction of nuclei in the simulated population heterozygous at the target locus.
