@@ -53,7 +53,7 @@ Python packages:
 
 We recommend installing Python and all its dependencies in a dedicated virtual environment using _conda_ ([**installing conda**](https://docs.conda.io/projects/conda/en/latest/user-guide/install/ "Conda's IInstallation Page")).
 
-```console
+```
 conda create -n myenv python==3.6.9 pysam==0.16.0.1 numpy==1.19.1 scipy==1.5.2 pandas==1.1.3 matplotlib==3.3.2 plotnine==0.7.1 tqdm==4.50.2
 ```
 
@@ -111,7 +111,7 @@ subcommands:
 
 Type ``senes.py simulator --help`` for a detailed description of the options and user-defined parameters:
 
-```console
+```shell
 usage: senes.py simulator [-h] -m {haploid,chromosomal} -k PLOIDY -g
                           GENERATIONS [-n ALLELE] [-i INPUT_RATIO]
                           [-c CHROMOSOMES] [-o OUTPUT] [-p PLOT]
@@ -227,7 +227,7 @@ When ran with the _haploid model_, the computation is relatively fast both at lo
 
 **Example 1**. Running **``SENES``** with the _haploid_ model at low _ploidy_:
 
-```console
+```
 senes.py simulator -m haploid -k 45 -g 250 -i 0.5 -o OUT/Tetrahymena -p True -t 4
 
 running SENES with the following shape parameters:
@@ -250,7 +250,7 @@ num_threads: 4
 
 **Example 2**. Running **``SENES``** with the _haploid_ model at high _ploidy_:
 
-```console
+```
 senes.py simulator -m haploid -k 860 -g 250 -i 0.5 -o OUTPUT/Paramecium -p True -t 4
 
 running SENES with the following shape parameters:
@@ -277,7 +277,7 @@ The runtime of **``SENES``** increases non-linearly with the _number of segregat
 
 **Example 3**. Running **``SENES``** with the _chromosomal_ model simulating a **large number** of _segregating particles_ ``-k``  *  ``-c`` = 45 * 250 (11250):
 
-```console
+```
 senes.py simulator -m chromosomal -k 45 -c 250 -g 250 -i 0.5 -o OUT/Tetrahymena -p True -t 4
 
 running SENES with the following shape parameters:
@@ -300,7 +300,7 @@ num_threads: 4
 
 **Example 4**. Running **``SENES``** with the _chromosomal_ model simulating a **very large number** of _segregating particles_ ``-k``  *  ``-c`` = 860 * 43 (36980):
 
-```console
+```
 senes.py simulator -m chromosomal -k 860 -c 43 -g 250 -i 0.5 -o OUT/Paramecium -p True -t 4
 
 running SENES with the following shape parameters:
