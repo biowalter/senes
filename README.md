@@ -1,5 +1,5 @@
 <img align="left" width="300" height="200" src="./logo/senes_logo.jpg">
-
+<br clear="left"/>
 
 ## SENES /sɪˈnɛs/
 
