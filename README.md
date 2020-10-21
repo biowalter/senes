@@ -17,10 +17,11 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - [Installation](#installation)
   - [Install Python and its dependencies](#install-python-and-its-dependencies)
   - [Clone the repository](#clone-the-repository)
-  - [Add senes' folder to $PATH](#add-the-senes-folder-to-path)
+  - [Add senes' folder to $PATH](#add-senes-folder-to-path)
+  - [Make senes.py executable](#make-senespy-executable)
 - [Usage](#usage)
 - [Output](#output)
-  - [The following output is written at the specified directory (-o dir/prefix):](#the-following-output-is-written-at-the-specified-directory--o-dirprefix)
+  - [The following output is written at the specified directory ``-o dir/prefix``:](#the-following-output-is-written-at-the-specified-directory--o-dirprefix)
 - [Example Run](#example-run)
   - [Haploid model](#haploid-model)
   - [Chromosomal model](#chromosomal-model)
@@ -107,8 +108,24 @@ git clone https://github.com/biowalter/senes.git
   ``sudo nano /etc/paths  `` 
 
   copy and paste "/home/user/senes/" in _paths_
+  
+ 
 
+#### Make senes.py executable
 
+- Linux
+
+  ```
+  chmod +x /home/user/senes/senes.py
+  ```
+
+- Mac OS X
+
+  ```
+  chmod 755 /home/user/senes/senes.py
+  ```
+
+  
 
 ## Usage
 
