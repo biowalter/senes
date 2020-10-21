@@ -1,4 +1,5 @@
-<img align="left" width="300" height="200" src="./logo/senes_logo.jpg">\
+<img align="left" width="300" height="200" src="./logo/senes_logo.jpg">
+
 
 ## SENES /sɪˈnɛs/
 
@@ -33,7 +34,8 @@ We are developing a **_compare module_**, which will allow testing empirical est
 
 ## Installation
 
-<img align="left" src="./logo/badge.svg">\
+<img align="left" src="./logo/badge.svg">
+
 
 **``SENES``** was developed on GNU/Linux and Mac OS X using python=3.6.9 with the following dependencies:
 
