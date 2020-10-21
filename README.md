@@ -20,7 +20,7 @@ In combination with empirical data, **``SENES``** may improve our understanding 
   - [Add senes' folder to $PATH](#add-the-senes-folder-to-path)
 - [Usage](#usage)
 - [Output](#output)
-  - [The following output is written at the specified directory ``-o dir/prefix``:](#the-following-output-is-written-at-the-specified-directory--o-dirprefix)
+  - [The following output is written at the specified directory (-o dir/prefix):](#the-following-output-is-written-at-the-specified-directory--o-dirprefix)
 - [Example Run](#example-run)
   - [Haploid model](#haploid-model)
   - [Chromosomal model](#chromosomal-model)
@@ -91,7 +91,7 @@ conda create -n myenv python=3.8 pysam numpy scipy pandas matplotlib plotnine tq
 #### Clone the repository
 
 ```
-git install add https://github.com/biowalter/senes.git
+git clone https://github.com/biowalter/senes.git
 ```
 
 
