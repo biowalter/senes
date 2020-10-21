@@ -1,8 +1,18 @@
+<img align="left" width="300" height="200" src="./logo/senes_logo.jpg">
+<br clear="left"/>
+
+## SENES /sɪˈnɛs/
+
+> Simulated Evolution of Nuclear Elements Segregation
+
+**``SENES``** simulates the random segregation of genetic elements across amitotic divisions in a population of polyploid cells. Amitosis is a spindle-independent nuclear division characteristic of polyploid nuclei, which is associated with the random or _quasi_-random segregation of genetic elements to daughter cells. This process, also known as _somatic assortment_, may lead to the generation of stable genetic and phenotypic variation in asexually dividing heterozygous cells. 
+
+In combination with empirical data, **``SENES``** may improve our understanding of  the genetic consequences of somatic assortment in asexually reproducing cells and provide fresh insights into the the macronuclear architecture of ciliates.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [SENES /sɪˈnɛs/](#senes-s%C9%AA%CB%88n%C9%9Bs)
 - [What can I do with SENES?](#what-can-i-do-with-senes)
 - [Installation](#installation)
   - [Install Python and its dependencies](#install-python-and-its-dependencies)
@@ -21,19 +31,6 @@
 - [Literature](#literature)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-<img align="left" width="300" height="200" src="./logo/senes_logo.jpg">
-<br clear="left"/>
-
-## SENES /sɪˈnɛs/
-
-> Simulated Evolution of Nuclear Elements Segregation
-
-**``SENES``** simulates the random segregation of genetic elements across amitotic divisions in a population of polyploid cells. Amitosis is a spindle-independent nuclear division characteristic of polyploid nuclei, which is associated with the random or _quasi_-random segregation of genetic elements to daughter cells. This process, also known as _somatic assortment_, may lead to the generation of stable genetic and phenotypic variation in asexually dividing heterozygous cells. 
-
-In combination with empirical data, **``SENES``** may improve our understanding of  the genetic consequences of somatic assortment in asexually reproducing cells and provide fresh insights into the the macronuclear architecture of ciliates.
-
-
 
 ## What can I do with SENES?
 
