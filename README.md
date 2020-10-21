@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [SENES /sɪˈnɛs/](#senes-s%C9%AA%CB%88n%C9%9Bs)
+- [What can I do with SENES?](#what-can-i-do-with-senes)
+- [Installation](#installation)
+  - [Install Python and its dependencies](#install-python-and-its-dependencies)
+  - [Clone the repository](#clone-the-repository)
+  - [Add the ``SENES``' folder to $PATH](#add-the-senes-folder-to-path)
+- [Usage](#usage)
+- [Output](#output)
+  - [The following output is written at the specified directory ``-o dir/prefix``:](#the-following-output-is-written-at-the-specified-directory--o-dirprefix)
+- [Example Run](#example-run)
+  - [Haploid model](#haploid-model)
+  - [Chromosomal model](#chromosomal-model)
+- [Contributing](#contributing)
+- [Contacts](#contacts)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
+- [Literature](#literature)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <img align="left" width="300" height="200" src="./logo/senes_logo.jpg">
 <br clear="left"/>
 
