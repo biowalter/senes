@@ -373,18 +373,13 @@ This software is licensed under an MIT license.
 
 ## Literature
 
-Kimura, M. (1957). Some problems of stochastic processes in genetics. *The Annals of Mathematical Statistics*, 882-901. 
-https://www.jstor.org/stable/2237051
+Kimura, M. (1957). Some problems of stochastic processes in genetics. *The Annals of Mathematical Statistics*, 882-901. https://www.jstor.org/stable/2237051
 
-Schensted, Irene V. "Appendix model of subnuclear segregation in the macronucleus of ciliates." *The American Naturalist* 92.864 (1958): 161-170. 
-DOI: https://doi.org/10.1086/282023
+Schensted, Irene V. "Appendix model of subnuclear segregation in the macronucleus of ciliates." *The American Naturalist* 92.864 (1958): 161-170. DOI: https://doi.org/10.1086/282023
 
-Preer, J. R. (1976). Quantitative predictions of random segregation models of the ciliate macronucleus. *Genetics Research*, *27*(2), 227-238.
-DOI: https://doi.org/10.1017/S0016672300016426
+Preer, J. R. (1976). Quantitative predictions of random segregation models of the ciliate macronucleus. *Genetics Research*, *27*(2), 227-238. DOI: https://doi.org/10.1017/S0016672300016426
 
-Nyberg, D. (1976). Are macronuclear subunits in Paramecium functionally diploid?. *Genetics Research*, *27*(2), 239-248.
-DOI: https://doi.org/10.1017/S0016672300016438
+Nyberg, D. (1976). Are macronuclear subunits in Paramecium functionally diploid?. *Genetics Research*, *27*(2), 239-248. DOI: https://doi.org/10.1017/S0016672300016438
 
-PREER JR, J. R., & PREER, L. B. (1979). The size of macronuclear DNA and its relationship to models for maintaining genic balance. *The Journal of Protozoology*, *26*(1), 14-18.
-DOI:  https://doi.org/10.1111/j.1550-7408.1979.tb02724.x
+PREER JR, J. R., & PREER, L. B. (1979). The size of macronuclear DNA and its relationship to models for maintaining genic balance. *The Journal of Protozoology*, *26*(1), 14-18. DOI:  https://doi.org/10.1111/j.1550-7408.1979.tb02724.x
 
