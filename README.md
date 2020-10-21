@@ -237,9 +237,9 @@ gen  input_ratio      sdev         H           1-H
 
 Optional output, (``-p True``) :
 
-- ``prefix _plot_dist_modelGEN.png`` . **Probability distribution plot. ``p(X)`` against ``X`` **(.png).
-- ``prefix _plot_sdev_modelGEN.png`` . **Somatic assortment plot.** **``sdev`` against ``gen`` **(.png).
-- ``prefix _plot_H_modelGEN.png``. **Loss of _heterozygosity_ plot.**  **``sdev`` against ``X`` **(.png).
+- ``prefix _plot_dist_modelGEN.png`` . **Probability distribution plot.** ``p(X)`` against ``X`` (.png).
+- ``prefix _plot_sdev_modelGEN.png`` . **Somatic assortment plot.** ``sdev`` against ``gen`` (.png).
+- ``prefix _plot_H_modelGEN.png``. **Loss of _heterozygosity_ plot.** ``sdev`` against ``X`` (.png).
 
 The user-defined _model_ and the number of _generations_ is reported in the file names.
 
