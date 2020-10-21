@@ -17,7 +17,7 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - [Installation](#installation)
   - [Install Python and its dependencies](#install-python-and-its-dependencies)
   - [Clone the repository](#clone-the-repository)
-  - [Add the ``SENES``' folder to $PATH](#add-the-senes-folder-to-path)
+  - [Add the senes' folder to $PATH](#add-the-senes-folder-to-path)
 - [Usage](#usage)
 - [Output](#output)
   - [The following output is written at the specified directory ``-o dir/prefix``:](#the-following-output-is-written-at-the-specified-directory--o-dirprefix)
@@ -96,7 +96,7 @@ git install add https://github.com/biowalter/senes.git
 
 
 
-#### Add the ``SENES``' folder to $PATH
+#### Add the senes' folder to $PATH
 
 - Linux
 
