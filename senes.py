@@ -31,7 +31,7 @@ CONTACT = "vitaliv@uni-muenster.de"
 def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot, nullisomics):
     sys.stdout.write(strftime("%Y-%m-%d %H:%M:%S") + ": Start modeling of somatic assortment\n")
     sys.stdout.flush()
-    print([model, chromosomes, generations, ploidy, allele, input_ratio, out])
+    #print([model, chromosomes, generations, ploidy, allele, input_ratio, out])
     #day = 10
     #div_24h = 4
     #generations = day * div_24h
