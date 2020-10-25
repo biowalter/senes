@@ -261,8 +261,8 @@ def main():
             print("input_ratio:", allele / float(ploidy) )
         print("out:", out)
         print("num_threads:", num_threads)
-        print("plot", plot)
-        print("nullisomics", nullisomics)
+        print("plot:", plot)
+        print("nullisomics:", nullisomics)
         print("--------------------------------------------------")        
 
         sys.stdout.write(strftime("%Y-%m-%d %H:%M:%S") + ': ' + ' '.join(sys.argv) + '\n')
