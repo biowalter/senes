@@ -200,9 +200,9 @@ gen  input_ratio      sdev         H           1-H
 - ``H`` **_heterozygosity_,** fraction of nuclei in the simulated population heterozygous at the target locus.
 - ``1-H`` **_homozygosity_**, fraction of nuclei in the simulated population homozygous at the target locus  (for either of the alternative alleles).
 
-Note that when the ``-nullisomics`` flag is on, the number of copies of the locus under exam is allowed to vary. Thus, ``H`` is no longer equal to the fraction of heterozygous nuclei, but rather reflects the fraction of cells which still have the target allele, regardless of the _status_ of the alternative alleles (which is no longer bound to the _ploidy_). In the same way  ``H-1`` now represents the fraction of cells that will have lost the target allele at the given ``gen``, but does not equal the fraction of homozygous nuclei, as the alternative allele might or might not be present.
+Note that when the ``-nullisomics`` flag is on, the number of copies of the locus under exam is allowed to vary. Thus, ``H`` is no longer equal to the fraction of heterozygous nuclei, but rather reflects the fraction of cells which still have the target allele, regardless of the _status_ of the alternative allele (which is no longer bound to the _ploidy_). In the same way,  ``1-H`` now represents the fraction of cells that will have lost the target allele at the given ``gen``, but does not equal the fraction of homozygous nuclei, as the alternative allele might or might not be present.
 
-To calculate the fraction of _nullisomic_ nuclei in the simulated population (the whole locus has been lost), set ``-n`` equal to ``-k`` or ``-input_ratio 1.0``.
+To calculate the fraction of _nullisomic_ nuclei in the simulated population (``1-H``), set ``-n`` equal to ``-k`` or ``-input_ratio`` to 1.0.
 
 #### The following output is written at the specified directory ``-o dir/prefix``:
 
