@@ -17,7 +17,7 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - [Installation](#installation)
   - [Install Python and its dependencies](#install-python-and-its-dependencies)
   - [Clone the repository](#clone-the-repository)
-  - [Add senes' folder to $PATH](#add-senes-folder-to-path)
+  - [Add _senes_ folder to $PATH](#add-senes-folder-to-path)
   - [Make senes.py executable](#make-senespy-executable)
 - [Usage](#usage)
 - [Output](#output)
@@ -41,7 +41,7 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - **The rate of somatic assortment of the target allele.**
 - **The probability distribution of the number of copies of the target allele.**
 
-The loci are assumed to be _biallelic_ (_e.g._ two alternative alleles contributed by each parent or mutant and wild type developmental variants) and the number of copies of the target allele is expressed as _fraction of the total number of copies_ of the locus under investigation ``[0, 1]``.  We termed this fraction _Nuclear Prevalence_.
+The loci are assumed to be _biallelic_ —_e.g._ two alternative alleles, each contributed by a parent, or two alternative developmental variants.  The number of copies of the target allele is expressed as  _fraction of the total number of copies_ of the locus under investigation, which can assume values between``[0, 1]`` when the copy number is conserved, or between ``[0, chromosomes]`` when _nullisomic_ loci are allowed to form.
 
 **``SENES``** currently supports two models of macronuclear architecture.
 
@@ -97,7 +97,7 @@ git clone https://github.com/biowalter/senes.git
 
 
 
-#### Add senes' folder to $PATH
+#### Add _senes_ folder to $PATH
 
 - Linux
 
@@ -140,7 +140,7 @@ Type ``senes.py simulator --help`` for a detailed description of the options and
 ```
 usage: senes.py simulator [-h] -m {haploid,chromosomal} -k PLOIDY -g
                           GENERATIONS [-n ALLELE] [-i INPUT_RATIO]
-                          [-c CHROMOSOMES] [-o OUTPUT] [-p PLOT]
+                          [-c CHROMOSOMES] [-o OUTPUT] [-p] [--nullisomics]
                           [-t NUM_THREADS]
 
 optional arguments:
@@ -164,8 +164,10 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         Output dir (current dir if not specified) and prefix
                         for output file (Default prefix = senes)
-  -p PLOT, --plot PLOT  Plot distributions and save to file (png). True/False
-                        (Default = False)
+  -p, --plot            Plot distributions and save to file (png). Takes no
+                        argument (Default = False)
+  --nullisomics         All copies of both alleles can be lost (nullisomic
+                        loci). Takes no argument (Default = False)
   -t NUM_THREADS, --num_threads NUM_THREADS
                         Number of threads (Default = 1)
 ```
@@ -196,6 +198,10 @@ gen  input_ratio      sdev         H           1-H
 - ``sdev`` **standard deviation** of the allele distribution at the corresponding generation. 
 - ``H`` **_heterozygosity_,** fraction of nuclei in the simulated population heterozygous at the target locus.
 - ``1-H`` **_homozygosity_**, fraction of nuclei in the simulated population homozygous at the target locus  (for either of the alternative alleles).
+
+Note that when the ``-nullisomics`` flag is on, the number of copies of the locus under exam is allowed to vary. Thus, ``H`` is no longer equal to the fraction of heterozygous nuclei, but rather reflects the fraction of cells which still have the target allele, regardless of the _status_ of the alternative alleles (which is no longer bound to the _ploidy_). In the same way  ``H-1`` now represents the fraction of cells that will have lost the target allele at the given ``gen``, but does not equal the fraction of homozygous nuclei, as the alternative allele might or might not be present.
+
+To calculate the fraction of _nullisomic_ nuclei in the simulated population (the whole locus has been lost), set ``-n`` equal to ``-k`` or ``-input_ratio 1.0``.
 
 #### The following output is written at the specified directory ``-o dir/prefix``:
 
