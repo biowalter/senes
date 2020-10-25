@@ -306,7 +306,7 @@ num_threads: 4
 
 #### Chromosomal model
 
-The runtime of **``SENES``** increases non-linearly with the _number of segregating  particles_ ``-k``  *  ``-c``, and the number of _generations_ ``-g`` simulated.  When selecting the _chromosomal_ model, it may take a very long time for the run to complete (depending on your machine): 
+With a large _number of segregating  particles_ ``-k``  *  ``-c``, the runtime of **``SENES``** increases non-linearly with the number of _generations_ ``-g`` simulated.  When selecting the _chromosomal_ model, it may take a very long time for the run to complete (depending on your machine): 
 
 **Example 3**. Running **``SENES``** with the _chromosomal_ model simulating a **large number** of _segregating particles_ ``-k``  *  ``-c`` = 45 * 250 (11250):
 
@@ -358,7 +358,7 @@ num_threads: 4
 
 Any contribution to expand the functionalities of **``SENES``** and implement more sophisticated mathematical models of nuclear elements segregation is highly appreciated. If you wish to contribute, please fork the repository and create a branch. 
 
-> Currently, **``SENES``** assumes that the total number of segregating elements received by a daughter cell (N = k * c) at each cell division is conserved. This implies that the system can ultimately reach only two absorbing boundaries: nuclei containing only either of the two alleles (fully homozygous at the simulated locus). If N is a random variable itself — _i.e._ each of the daughter nuclei is stocked at random — then a third absorbing boundary is possible: nuclei that have lost both alleles (_nullisomic_ locus). It should be noted, that somatic assortment is also expected to proceed faster under this model.
+> Currently, **``SENES``** assumes that the total number of segregating elements received by a daughter cell at cell division is conserved  (N = k * c). Even for the _chromosomal_ model, **``SENES``** binds the number of copies of the two alleles to a constant _ploidy_ (all copies of both alleles combined).  This implies that the system can ultimately reach only two absorbing boundaries: nuclei containing only either of the two alleles (fully homozygous at the simulated locus). If N is a random variable itself — _i.e._ each of the daughter nuclei is stocked at random — then a third absorbing boundary is possible: nuclei that have lost both alleles (_nullisomic_ locus). Although **``SENES``** can calculate the rate of formation of _nullisomics_, it's currently not possible to calculate the fraction of heterozygous nuclei in the population under these asumptions.
 
 More details about different mathematical models to simulate somatic assortment can be found in the referenced literature and in our manuscript (in preparation). If you are interested, feel free to contact us to discuss meaningful implementations.
 
