@@ -48,10 +48,6 @@ def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot
     df_GEN = []
     
     for j in tqdm(gen_range, desc="progress"):   
-        #d = []
-        #for i in range(0, len(numpy.where(y > 0)[0]) ):
-            #d.append(y[numpy.where(y > 0)[0]][i] * 
-                     #scipy.stats.hypergeom.pmf(x, M, 2 * numpy.where(y > 0)[0][i], ploidy * chromosomes))
         d = [ y[numpy.where(y > 0)[0]][i] * 
               scipy.stats.hypergeom.pmf(x, M, 2 * numpy.where(y > 0)[0][i], ploidy * chromosomes) 
               for i in range(0, len(numpy.where(y > 0)[0]) ) ]        
@@ -75,7 +71,7 @@ def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot
             Hmz = y2[0]
             lim = 3
         else:
-            Hmz = y2[0] + y2[ploidy] # if nullisomics is True
+            Hmz = y2[0] + y2[ploidy]
             lim = 1
         H = 1 - Hmz # (y2[1:ploidy])
         df_GEN.append(pd.DataFrame({'gen': int(j),
