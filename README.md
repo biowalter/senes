@@ -40,6 +40,7 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - **The rate of loss of heterozygosity in the population.**
 - **The rate of somatic assortment of the target allele.**
 - **The probability distribution of the number of copies of the target allele.**
+- **The probability that a cell will have lost all copies of both alleles (formation of _nullisomic_ loci)** 
 
 The loci are assumed to be _biallelic_ —_e.g._ two alternative alleles, each contributed by a parent, or two alternative developmental variants.  The number of copies of the target allele is expressed as  _fraction of the total number of copies_ of the locus under investigation, which can assume values between``[0, 1]`` when the copy number is conserved, or between ``[0, chromosomes]`` when _nullisomic_ loci are allowed to form.
 
