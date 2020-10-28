@@ -17,7 +17,7 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - [Installation](#installation)
   - [Install Python and its dependencies](#install-python-and-its-dependencies)
   - [Clone the repository](#clone-the-repository)
-  - [Add senes' folder to $PATH](#add-senes-folder-to-path)
+  - [Add _senes_ folder to $PATH](#add-senes-folder-to-path)
   - [Make senes.py executable](#make-senespy-executable)
 - [Usage](#usage)
 - [Output](#output)
@@ -40,8 +40,9 @@ In combination with empirical data, **``SENES``** may improve our understanding 
 - **The rate of loss of heterozygosity in the population.**
 - **The rate of somatic assortment of the target allele.**
 - **The probability distribution of the number of copies of the target allele.**
+- **The probability that a cell will have lost all copies of both alleles (formation of _nullisomic_ loci)** 
 
-The loci are assumed to be _biallelic_ (_e.g._ two alternative alleles contributed by each parent or mutant and wild type developmental variants) and the number of copies of the target allele is expressed as _fraction of the total number of copies_ of the locus under investigation ``[0, 1]``.  We termed this fraction _Nuclear Prevalence_.
+The loci are assumed to be _biallelic_ —_e.g._ two alternative alleles, each contributed by a parent, or two alternative developmental variants.  The number of copies of the target allele is expressed as  _fraction of the total number of copies_ of the locus under investigation, which can assume values between``[0, 1]`` when the copy number is conserved, or between ``[0, chromosomes]`` when _nullisomic_ loci are allowed to form.
 
 **``SENES``** currently supports two models of macronuclear architecture.
 
@@ -97,7 +98,7 @@ git clone https://github.com/biowalter/senes.git
 
 
 
-#### Add senes' folder to $PATH
+#### Add _senes_ folder to $PATH
 
 - Linux
 
@@ -140,7 +141,7 @@ Type ``senes.py simulator --help`` for a detailed description of the options and
 ```
 usage: senes.py simulator [-h] -m {haploid,chromosomal} -k PLOIDY -g
                           GENERATIONS [-n ALLELE] [-i INPUT_RATIO]
-                          [-c CHROMOSOMES] [-o OUTPUT] [-p PLOT]
+                          [-c CHROMOSOMES] [-o OUTPUT] [-p] [--nullisomics]
                           [-t NUM_THREADS]
 
 optional arguments:
@@ -164,8 +165,10 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         Output dir (current dir if not specified) and prefix
                         for output file (Default prefix = senes)
-  -p PLOT, --plot PLOT  Plot distributions and save to file (png). True/False
-                        (Default = False)
+  -p, --plot            Plot distributions and save to file (png). Takes no
+                        argument (Default = False)
+  --nullisomics         All copies of both alleles can be lost (nullisomic
+                        loci). Takes no argument (Default = False)
   -t NUM_THREADS, --num_threads NUM_THREADS
                         Number of threads (Default = 1)
 ```
@@ -196,6 +199,10 @@ gen  input_ratio      sdev         H           1-H
 - ``sdev`` **standard deviation** of the allele distribution at the corresponding generation. 
 - ``H`` **_heterozygosity_,** fraction of nuclei in the simulated population heterozygous at the target locus.
 - ``1-H`` **_homozygosity_**, fraction of nuclei in the simulated population homozygous at the target locus  (for either of the alternative alleles).
+
+Note that when the ``-nullisomics`` flag is on, the number of copies of the locus under exam is allowed to vary. Thus, ``H`` is no longer equal to the fraction of heterozygous nuclei, but rather reflects the fraction of cells which still have the target allele, regardless of the _status_ of the alternative allele (which is no longer bound to the _ploidy_). In the same way,  ``1-H`` now represents the fraction of cells that will have lost the target allele at the given ``gen``, but does not equal the fraction of homozygous nuclei, as the alternative allele might or might not be present.
+
+To calculate the fraction of _nullisomic_ nuclei in the simulated population (``1-H``), set ``-n`` equal to ``-k`` or ``-input_ratio`` to 1.0.
 
 #### The following output is written at the specified directory ``-o dir/prefix``:
 
@@ -299,7 +306,7 @@ num_threads: 4
 
 #### Chromosomal model
 
-The runtime of **``SENES``** increases non-linearly with the _number of segregating  particles_ ``-k``  *  ``-c``, and the number of _generations_ ``-g`` simulated.  When selecting the _chromosomal_ model, it may take a very long time for the run to complete (depending on your machine): 
+With a large _number of segregating  particles_ ``-k``  *  ``-c``, the runtime of **``SENES``** increases non-linearly with the number of _generations_ ``-g`` simulated.  When selecting the _chromosomal_ model, it may take a very long time for the run to complete (depending on your machine): 
 
 **Example 3**. Running **``SENES``** with the _chromosomal_ model simulating a **large number** of _segregating particles_ ``-k``  *  ``-c`` = 45 * 250 (11250):
 
@@ -351,7 +358,7 @@ num_threads: 4
 
 Any contribution to expand the functionalities of **``SENES``** and implement more sophisticated mathematical models of nuclear elements segregation is highly appreciated. If you wish to contribute, please fork the repository and create a branch. 
 
-> Currently, **``SENES``** assumes that the total number of segregating elements received by a daughter cell (N = k * c) at each cell division is conserved. This implies that the system can ultimately reach only two absorbing boundaries: nuclei containing only either of the two alleles (fully homozygous at the simulated locus). If N is a random variable itself — _i.e._ each of the daughter nuclei is stocked at random — then a third absorbing boundary is possible: nuclei that have lost both alleles (_nullisomic_ locus). It should be noted, that somatic assortment is also expected to proceed faster under this model.
+> Currently, **``SENES``** assumes that the total number of segregating elements received by a daughter cell at cell division is conserved  (N = k * c). Even for the _chromosomal_ model, **``SENES``** binds the number of copies of the two alleles to a constant _ploidy_ (all copies of both alleles combined).  This implies that the system can ultimately reach only two absorbing boundaries: nuclei containing only either of the two alleles (fully homozygous at the simulated locus). If N is a random variable itself — _i.e._ each of the daughter nuclei is stocked at random — then a third absorbing boundary is possible: nuclei that have lost both alleles (_nullisomic_ locus). Although **``SENES``** can calculate the rate of formation of _nullisomics_, it's currently not possible to calculate the fraction of heterozygous nuclei in the population under these asumptions.
 
 More details about different mathematical models to simulate somatic assortment can be found in the referenced literature and in our manuscript (in preparation). If you are interested, feel free to contact us to discuss meaningful implementations.
 

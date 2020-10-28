@@ -28,7 +28,7 @@ AUTHORS = "Valerio Vitali, Rebecca Hagen and Francesco Catania"
 CONTACT = "vitaliv@uni-muenster.de"
 
 
-def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot):
+def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot, nullisomics):
     sys.stdout.write(strftime("%Y-%m-%d %H:%M:%S") + ": Start modeling of somatic assortment\n")
     sys.stdout.flush()
     #print([model, chromosomes, generations, ploidy, allele, input_ratio, out])
@@ -37,27 +37,42 @@ def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot
     #generations = day * div_24h
     gen_range = range(2, generations + 1, 1)
     if input_ratio and allele is None:
-        allele = input_ratio * ploidy #
+        allele = input_ratio * ploidy
+    else:
+        input_ratio = allele / ploidy    
+    if chromosomes > 1 and input_ratio > 0.5 and nullisomics is False:
+        allele = (1 - input_ratio) * ploidy    
     [M, n, N] = [2 * ploidy * chromosomes, 2 * allele, ploidy * chromosomes]
     x = range(0, ploidy * chromosomes + 1, 1) # All possible successes
     y = scipy.stats.hypergeom.pmf(x, M, n, N) # 1st GEN
     df_GEN = []
     
     for j in tqdm(gen_range, desc="progress"):   
-        d = []
-        for i in range(0, len(numpy.where(y > 0)[0]) ):
-            d.append(y[numpy.where(y > 0)[0]][i] * 
-                     scipy.stats.hypergeom.pmf(x, M, 2 * numpy.where(y > 0)[0][i], ploidy * chromosomes))
-        y = d[0]
-        for i in range(1, len(d)):
-            y = y + d[i]
-        #-------------------------magic block
-        y1 = numpy.append(y[0:ploidy], sum(y[ploidy:])) / 2
-        y2 = y1 + y1[::-1]
-        x1 = range(0, ploidy + 1)
-        #------------------------------------        
+        d = [ y[numpy.where(y > 0)[0]][i] * 
+              scipy.stats.hypergeom.pmf(x, M, 2 * numpy.where(y > 0)[0][i], ploidy * chromosomes) 
+              for i in range(0, len(numpy.where(y > 0)[0]) ) ]        
+        y = sum(d) # stack arrays
+        if chromosomes > 1 and nullisomics is False:
+            x1 = range(0, ploidy + 1)
+            y1 = numpy.append(y[0:ploidy], sum(y[ploidy:])) / 2
+            #--------------------run magic block
+            if input_ratio == 0.5: # sym
+                y2 = y1 + y1[::-1]
+            elif input_ratio < 0.5:
+                y2 = y1*2
+            elif input_ratio > 0.5:
+                y2 = y1[::-1]*2
+            #------------------------------------
+        elif chromosomes <= 1 or (chromosomes > 1 and nullisomics is True):
+            x1 = x
+            y2 = y
         sdev = numpy.sqrt(sum([i**2 * y2[i] for i in x1]) - sum([i for i in x1]*y2)**2)
-        Hmz = y2[0] + y2[ploidy]
+        if nullisomics is True:
+            Hmz = y2[0]
+            lim = 3
+        else:
+            Hmz = y2[0] + y2[ploidy]
+            lim = 1
         H = 1 - Hmz # (y2[1:ploidy])
         df_GEN.append(pd.DataFrame({'gen': int(j),
                                     'input_ratio': allele / float(ploidy),
@@ -65,6 +80,7 @@ def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot
                                     'H': 1-Hmz,
                                     '1-H': Hmz,
                                     'p(X)': y2}))
+    print(len(x1), len(y2))
     df_GEN = pd.concat(df_GEN)
     df_GEN['X'] = df_GEN.index
     popped_col = df_GEN.pop('X')
@@ -86,6 +102,7 @@ def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot
          + aes(x='X', y='p(X)', color='gen')    # variables
          + geom_line() # type of plot
          + scale_color_discrete(guide=False)
+         + xlim(0, lim)
          + theme_bw(base_size=15)
         )
         
@@ -163,8 +180,11 @@ def main():
     parser_sim.add_argument('-o', '--output', help='Output dir (current dir if not specified) and prefix for output file (Default prefix = senes)',
                           default="senes")
     
-    parser_sim.add_argument('-p', '--plot', help='Plot distributions and save to file (png). True/False (Default = False)',
-                          type=bool, default=False)    
+    parser_sim.add_argument('-p', '--plot', help='Plot distributions and save to file (png). Takes no argument (Default = False)',
+                          action="store_true", default=False)
+    
+    parser_sim.add_argument('--nullisomics', help='All copies of both alleles can be lost (nullisomic loci). Takes no argument (Default = False)',
+                          action="store_true", default=False)     
     
     parser_sim.add_argument('-t', '--num_threads', help='Number of threads (Default = 1)', type=int,
                           default=1)
@@ -187,6 +207,7 @@ def main():
         out = args.output
         num_threads = max(args.num_threads, 1)
         plot = args.plot
+        nullisomics = args.nullisomics
         
         if model == "chromosomal" and chromosomes == 1:
             print("\nERROR: Please input the number of somatic chromosomes (> 1)\n")
@@ -197,6 +218,11 @@ def main():
             print("\nWARNING: you selected the haploid model. "
                   "The number of somatic chromosomes will be set to 1\n")
             chromosomes = 1
+        
+        if model == "haploid" and nullisomics is True:
+            print("\nWARNING: you selected the haploid model. "
+                  "nullisomics flag will be ignored\n")
+            nullisomics = False        
         
         if allele and (allele < 0 or allele > ploidy):
             print("\nERROR: Initial number of target alleles should be between 0 and ploidy\n")
@@ -214,9 +240,9 @@ def main():
             sys.exit(1)
             
         if allele and input_ratio:
-            print("\nWARNING: running with allele parameter. Input_ratio will be ignored\n")       
+            print("\nWARNING: Running with allele parameter. Input_ratio will be ignored\n")       
 
-        print("\nrunning SENES with the following shape parameters:\n"
+        print("\nRunning SENES with the following shape parameters:\n"
         "--------------------------------------------------")
         print("subunit model:", model)
         if model == "chromosomal":
@@ -235,6 +261,8 @@ def main():
             print("input_ratio:", allele / float(ploidy) )
         print("out:", out)
         print("num_threads:", num_threads)
+        print("plot:", plot)
+        print("nullisomics:", nullisomics)
         print("--------------------------------------------------")        
 
         sys.stdout.write(strftime("%Y-%m-%d %H:%M:%S") + ': ' + ' '.join(sys.argv) + '\n')
@@ -244,7 +272,7 @@ def main():
         if dir_name != '':
             call("mkdir -p " + dir_name, shell=True)
 
-        core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot)
+        core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot, nullisomics)
 
     elif args.mode == "compare":
         print("\ncomopare mode is under developoment. Watch this space!!\n")
