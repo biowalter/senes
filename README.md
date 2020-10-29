@@ -242,7 +242,7 @@ To calculate the fraction of _nullisomic_ nuclei in the simulated population (``
 
   
 
-Optional output, (``-p True``) :
+Optional output, (``-p`` flag) :
 
 - ``prefix _plot_dist_modelGEN.png`` . **Probability distribution plot.** ``p(X)`` against ``X`` (.png).
 - ``prefix _plot_sdev_modelGEN.png`` . **Somatic assortment plot.** ``sdev`` against ``gen`` (.png).
