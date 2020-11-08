@@ -7,7 +7,7 @@
 
 **``SENES``** simulates the random segregation of genetic elements across amitotic divisions in a population of polyploid cells. Amitosis is a spindle-independent nuclear division characteristic of polyploid nuclei, which is associated with the random or _quasi_-random segregation of genetic elements to daughter cells. This process, also known as _somatic assortment_, may lead to the generation of stable genetic and phenotypic variation in asexually dividing heterozygous cells. 
 
-In combination with empirical data, **``SENES``** may improve our understanding of  the genetic consequences of somatic assortment in asexually reproducing cells and provide fresh insights into the the macronuclear architecture of ciliates.
+In combination with empirical data, **``SENES``** may improve our understanding of  the genetic consequences of somatic assortment in asexually reproducing cells and provide fresh insights into the macronuclear architecture of ciliates.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -244,9 +244,9 @@ To calculate the fraction of _nullisomic_ nuclei in the simulated population (``
 
 Optional output, (``-p`` flag) :
 
-- ``prefix _plot_dist_modelGEN.png`` . **Probability distribution plot.** ``p(X)`` against ``X`` (.png).
-- ``prefix _plot_sdev_modelGEN.png`` . **Somatic assortment plot.** ``sdev`` against ``gen`` (.png).
-- ``prefix _plot_H_modelGEN.png``. **Loss of _heterozygosity_ plot.** ``sdev`` against ``X`` (.png).
+- ``prefix_plot_dist_modelGEN.png`` . **Probability distribution plot.** ``p(X)`` against ``X`` (.png).
+- ``prefix_plot_sdev_modelGEN.png`` . **Somatic assortment plot.** ``sdev`` against ``gen`` (.png).
+- ``prefix_plot_H_modelGEN.png``. **Loss of _heterozygosity_ plot.** ``sdev`` against ``X`` (.png).
 
 The user-defined _model_ and the number of _generations_ is reported in the file names.
 
