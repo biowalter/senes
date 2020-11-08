@@ -80,7 +80,7 @@ def core(model, chromosomes, generations, ploidy, allele, input_ratio, out, plot
                                     'H': 1-Hmz,
                                     '1-H': Hmz,
                                     'p(X)': y2}))
-    print(len(x1), len(y2))
+    #print(len(x1), len(y2))
     df_GEN = pd.concat(df_GEN)
     df_GEN['X'] = df_GEN.index
     popped_col = df_GEN.pop('X')
