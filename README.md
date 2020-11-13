@@ -384,7 +384,7 @@ Kimura, M. (1957). Some problems of stochastic processes in genetics. *The Annal
 
 Schensted, Irene V. "Appendix model of subnuclear segregation in the macronucleus of ciliates." *The American Naturalist* 92.864 (1958): 161-170. DOI: https://doi.org/10.1086/282023
 
-Preer, J. R. (1976). Quantitative predictions of random segregation models of the ciliate macronucleus. *Genetics Research*, *27*(2), 227-238. DOI: https://doi.org/10.1017/S0016672300016426
+**Preer, J. R. (1976). Quantitative predictions of random segregation models of the ciliate macronucleus. *Genetics Research*, *27*(2), 227-238.** DOI: https://doi.org/10.1017/S0016672300016426
 
 Nyberg, D. (1976). Are macronuclear subunits in Paramecium functionally diploid?. *Genetics Research*, *27*(2), 239-248. DOI: https://doi.org/10.1017/S0016672300016438
 
