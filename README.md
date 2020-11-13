@@ -366,7 +366,7 @@ More details about different mathematical models to simulate somatic assortment 
 
 ## Contacts
 
-- Valerio Vitali (vitali@uni-muenster.de)
+- Valerio Vitali (vitaliv@uni-muenster.de)
 - Rebecca Hagen ([rebecca.hagen@uni-muenster.de](mailto:rebecca.hagen@uni-muenster.de))
 - Franceso Catania ([francesco.catania@uni-muenster.de](mailto:francesco.catania@uni-muenster.de))
 
