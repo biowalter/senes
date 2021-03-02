@@ -2,6 +2,7 @@
 <br clear="left"/>
 
 ## SENES /sɪˈnɛs/
+[![DOI](https://zenodo.org/badge/305942233.svg)](https://zenodo.org/badge/latestdoi/305942233)
 
 > Simulated Evolution of Nuclear Elements Segregation
 
