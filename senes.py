@@ -23,7 +23,7 @@ from tqdm import tqdm
 
 PYTHON_VERSION = sys.version_info
 VERSION = "beta"
-PRORAM = "SENES"
+PROGRAM = "SENES"
 AUTHORS = "Valerio Vitali, Rebecca Hagen and Francesco Catania"
 CONTACT = "vitaliv@uni-muenster.de"
 
